@@ -77,8 +77,8 @@ public class DynamicConfigCenterServiceImpl implements DynamicConfigCenterServic
             try {
                 // 从redis获取指定key的值
                 RBucket<String> bucket = redissonClient.getBucket(key);
-                boolean isExisted = bucket.isExists();
-                if (!isExisted) {
+                boolean exists = bucket.isExists();
+                if (!exists) {
                     // key不存在,使用默认值初始化
                     bucket.set(defaultValue);
                 } else {
@@ -101,7 +101,38 @@ public class DynamicConfigCenterServiceImpl implements DynamicConfigCenterServic
 
     @Override
     public void adjustAttribute(Attribute attribute) {
+        String key = properties.getKey(attribute.getAttribute());
+        String value = attribute.getValue();
 
+        RBucket<Object> bucket = redissonClient.getBucket(key);
+        boolean exists = bucket.isExists();
+        if (!exists) {
+            return;
+        }
+        // 更新redis缓存的值
+        bucket.set(value);
+
+        Object beanInstance = dynamicConfigCenterBeanMap.get(key);
+        if (beanInstance == null) {
+            return;
+        }
+
+        // 判断beanInstance是否是Spring代理对象
+        Class<?> beanClass = beanInstance.getClass();
+        if (AopUtils.isAopProxy(beanInstance)) {
+            beanClass = AopUtils.getTargetClass(beanInstance);
+        }
+
+        try {
+            // 反射设置字段值
+            Field field = beanClass.getDeclaredField(attribute.getAttribute());
+            field.setAccessible(true);
+            field.set(beanInstance, value);
+            field.setAccessible(false);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        log.info("动态配置中心节点监听, 动态设置key:{}, value:{}", key, value);
     }
 
 }
