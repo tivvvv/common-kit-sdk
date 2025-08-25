@@ -21,6 +21,11 @@ public class DynamicConfigCenterRedisRegisterProperties {
     private int port;
 
     /**
+     * redis database
+     */
+    private int database;
+
+    /**
      * 连接池的大小
      */
     private int poolSize = 64;
@@ -82,6 +87,14 @@ public class DynamicConfigCenterRedisRegisterProperties {
 
     public void setPort(int port) {
         this.port = port;
+    }
+
+    public int getDatabase() {
+        return database;
+    }
+
+    public void setDatabase(int database) {
+        this.database = database;
     }
 
     public int getPoolSize() {

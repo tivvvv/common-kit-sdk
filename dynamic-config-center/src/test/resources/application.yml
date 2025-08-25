@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: test
+
+dynamic:
+  config:
+    center:
+      application: test-application
+      register:
+        redis:
+          host: localhost
+          port: 6379
+          database: 0
