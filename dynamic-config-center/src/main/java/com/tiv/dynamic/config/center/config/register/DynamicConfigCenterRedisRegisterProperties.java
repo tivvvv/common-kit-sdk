@@ -2,8 +2,13 @@ package com.tiv.dynamic.config.center.config.register;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "dynamic.config.center.config.register", ignoreInvalidFields = true)
+@ConfigurationProperties(prefix = "dynamic.config.center.register.redis", ignoreInvalidFields = true)
 public class DynamicConfigCenterRedisRegisterProperties {
+
+    /**
+     * redis password
+     */
+    private String password;
 
     /**
      * redis host
@@ -54,6 +59,14 @@ public class DynamicConfigCenterRedisRegisterProperties {
      * 是否保持长连接
      */
     private boolean keepAlive = true;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public String getHost() {
         return host;

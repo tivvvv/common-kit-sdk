@@ -2,7 +2,7 @@ package com.tiv.dynamic.config.center.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "dynamic.config.center.config", ignoreInvalidFields = true)
+@ConfigurationProperties(prefix = "dynamic.config.center", ignoreInvalidFields = true)
 public class DynamicConfigCenterProperties {
 
     private String application;
