@@ -30,4 +30,12 @@ public class Attribute {
         this.value = value;
     }
 
+    @Override
+    public String toString() {
+        return "Attribute{" +
+                "attribute='" + attribute + '\'' +
+                ", value='" + value + '\'' +
+                '}';
+    }
+
 }

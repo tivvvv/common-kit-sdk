@@ -132,7 +132,7 @@ public class DynamicConfigCenterServiceImpl implements DynamicConfigCenterServic
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        log.info("动态配置中心节点监听, 动态设置key:{}, value:{}", key, value);
+        log.info("动态配置中心 动态设置key:{}, value:{}成功", key, value);
     }
 
 }

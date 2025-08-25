@@ -1,0 +1,1 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.tiv.dynamic.config.center.config.register.DynamicConfigCenterRedisRegisterAutoConfig,com.tiv.dynamic.config.center.config.DynamicConfigCenterAutoConfig
