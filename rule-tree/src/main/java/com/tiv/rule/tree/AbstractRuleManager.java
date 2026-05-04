@@ -1,5 +1,8 @@
 package com.tiv.rule.tree;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * 规则管理器抽象类
  *
@@ -9,6 +12,9 @@ package com.tiv.rule.tree;
  */
 public abstract class AbstractRuleManager<I, C, O> implements RuleHandler<I, C, O>, RuleRouter<I, C, O> {
 
+    @Getter
+    @Setter
+    @SuppressWarnings("unchecked")
     protected RuleHandler<I, C, O> DEFAULT_RULE_HANDLER = (RuleHandler<I, C, O>) RuleHandler.DEFAULT;
 
     /**
