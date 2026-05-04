@@ -1,5 +1,8 @@
 package com.tiv.responsibility.chain.multiton.helper;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,6 +11,8 @@ import java.util.Map;
  */
 public class DynamicContext {
 
+    @Setter
+    @Getter
     private boolean proceed;
 
     private Map<String, Object> dataMap = new HashMap<>();
@@ -22,14 +27,6 @@ public class DynamicContext {
 
     public <T> void setValue(String key, T value) {
         dataMap.put(key, value);
-    }
-
-    public boolean isProceed() {
-        return proceed;
-    }
-
-    public void setProceed(boolean proceed) {
-        this.proceed = proceed;
     }
 
 }

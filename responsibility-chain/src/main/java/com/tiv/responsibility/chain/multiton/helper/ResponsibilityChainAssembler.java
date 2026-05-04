@@ -2,10 +2,12 @@ package com.tiv.responsibility.chain.multiton.helper;
 
 import com.tiv.responsibility.chain.multiton.BusinessResponsibilityChain;
 import com.tiv.responsibility.chain.multiton.handler.ResponsibilityHandler;
+import lombok.Getter;
 
 /**
  * 责任链装配器
  */
+@Getter
 public class ResponsibilityChainAssembler<I, C extends DynamicContext, O> {
 
     private final BusinessResponsibilityChain<I, C, O> responsibilityChain;
@@ -16,10 +18,6 @@ public class ResponsibilityChainAssembler<I, C extends DynamicContext, O> {
         for (ResponsibilityHandler<I, C, O> handler : handlers) {
             responsibilityChain.add(handler);
         }
-    }
-
-    public BusinessResponsibilityChain<I, C, O> getResponsibilityChain() {
-        return responsibilityChain;
     }
 
 }

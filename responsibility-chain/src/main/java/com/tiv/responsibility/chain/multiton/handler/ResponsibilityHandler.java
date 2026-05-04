@@ -17,8 +17,8 @@ public interface ResponsibilityHandler<I, C extends DynamicContext, O> {
     }
 
     default O stop(I input, C context, O output) {
-        context.setProceed(true);
-        return null;
+        context.setProceed(false);
+        return output;
     }
 
     O apply(I input, C context);
