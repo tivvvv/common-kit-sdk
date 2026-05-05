@@ -12,6 +12,7 @@
         <module>dynamic-config-center</module>
         <module>rule-tree</module>
         <module>responsibility-chain</module>
+        <module>common-kit-bom</module>
     </modules>
 
     <properties>

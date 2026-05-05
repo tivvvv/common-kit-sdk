@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.tiv</groupId>
+        <artifactId>common-kit-sdk</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <packaging>pom</packaging>
+    <artifactId>common-kit-bom</artifactId>
+
+    <properties>
+        <dynamic-config-center.version>1.0-SNAPSHOT</dynamic-config-center.version>
+        <responsibility-chain.version>1.0-SNAPSHOT</responsibility-chain.version>
+        <rule-tree.version>1.0-SNAPSHOT</rule-tree.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.tiv</groupId>
+                <artifactId>dynamic-config-center</artifactId>
+                <version>${dynamic-config-center.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.tiv</groupId>
+                <artifactId>responsibility-chain</artifactId>
+                <version>${responsibility-chain.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.tiv</groupId>
+                <artifactId>rule-tree</artifactId>
+                <version>${rule-tree.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
