@@ -16,6 +16,7 @@
         <dynamic-config-center.version>1.0-SNAPSHOT</dynamic-config-center.version>
         <responsibility-chain.version>1.0-SNAPSHOT</responsibility-chain.version>
         <rule-tree.version>1.0-SNAPSHOT</rule-tree.version>
+        <rate-limiter.version>1.0-SNAPSHOT</rate-limiter.version>
     </properties>
 
     <dependencyManagement>
@@ -36,6 +37,12 @@
                 <groupId>com.tiv</groupId>
                 <artifactId>rule-tree</artifactId>
                 <version>${rule-tree.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.tiv</groupId>
+                <artifactId>rate-limiter</artifactId>
+                <version>${rate-limiter.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

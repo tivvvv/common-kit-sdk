@@ -13,6 +13,7 @@
         <module>rule-tree</module>
         <module>responsibility-chain</module>
         <module>common-kit-bom</module>
+        <module>rate-limiter</module>
     </modules>
 
     <properties>
